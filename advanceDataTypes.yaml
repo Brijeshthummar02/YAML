@@ -1,0 +1,114 @@
+student: !!seq
+ - marks
+ - name
+ - roll_no
+ 
+# like this also
+cities: [gujarat, goa]
+
+# some of the keys of the seq will be empty
+# sparse seq
+sparse seq:
+ - hey
+ - how
+ - 
+ - Null
+ - sup
+
+# nested sequence
+- 
+ - mango
+ - apple
+ - banana
+ -
+-
+ - marks
+ - name
+ - date
+- 
+
+# key: value pairs are called maps
+!!map
+
+#nested mappings: map within an map
+name: Brijesh Thummar
+role:
+ age: 18
+ job: student
+
+# same as 
+name: Brijesh Thummar
+role: { age: 18 , job: student }
+
+# pairs: keys may have duplicate values
+# !!pairs
+
+pair example: !!pairs
+ - job: student
+ - job: teacher
+
+# same as
+pair example: !!pairs [job: student , job: teacher]
+# this will be an array of hashtables
+
+# !!set will allow you to have unique values
+names: !!set
+ ? Brijesh
+ ? Ram
+ ? Harsh
+
+# dictionary !!omap
+people: !!omap
+ - Brijesh:
+     name: Brijesh Thummar
+     age: 18
+     height: 181
+ - Ram:
+     name: Ram Pandit
+     age: 32
+     height: 167
+
+# reusing some properties
+likings: 
+  fav fruit: mango
+  dislikes: dragon fruit
+
+person1:
+  name: Brijesh Thummar
+  fav fruit: mango
+  dislikes: dragon fruit
+
+person2:
+  name: Rahul
+  fav fruit: mango
+  dislikes: dragon fruit
+
+person3:
+  name: Ram
+  fav fruit: mango
+  dislikes: dragon fruit
+---
+# reusing some properties using anchors -> anchors: what and where do you want to copy it.
+likings: &likes # give & ---name
+  fav fruit: mango
+  dislikes: dragon fruit
+
+person1:
+  name: Brijesh Thummar
+  <<: *likes
+
+person2:
+  name: Rahul
+  <<: *likes
+  dislikes: berries # everything will be copied and dislike will be updated
+---
+# this will look like
+person2:
+  name: Ram
+  fav fruit: mango
+  dislikes: berries
+---
+person3:
+  name: Ram
+  fav fruit: mango
+  dislikes: dragon fruit
