@@ -1,0 +1,44 @@
+# String variables
+name: brijesh thummar
+fruit: "apple"
+job: 'swe'
+
+bio: hey my name is brijesh thummar.
+---
+# write a single line in multiple lines
+message: >
+this will 
+all be in
+one single line
+---
+# same as
+message: !!str  this will all be in one single line
+---
+number: 5647
+marks: 43.56
+booleanValue: !!bool No # n, N, false, False, FALSE
+# same for true -> yes, y, Y
+
+# specify the type
+zero: !!int 0
+positiveNum: !!int 45
+negativeNum: !!int -54
+binaryNum: !!int 011001
+octalNum: !!int 03434
+hexa: !!int 0x45
+commaValue: !!int +540_000   # 540,000
+exponential numbers: 6.433E54
+
+# floating point numbers
+marks: !!float 36.89
+infinite: !!float .inf
+not a num: .nan
+
+# null
+surname: !!null Null # or null Null ~
+~: this is a null key
+
+# dates and time
+date: !!timestamp 2025-01-01
+india time: 2025-12-15T02:59:34:19 +5:30
+no time zone: 2025-12-15T02:59:34:19
