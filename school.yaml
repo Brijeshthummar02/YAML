@@ -1,0 +1,8 @@
+---
+School:
+- name: AVM
+  principal: Someone
+  Students:
+  - rno: 12
+    name: Brijesh Thummar
+    marks: 89
